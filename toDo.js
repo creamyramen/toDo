@@ -16,7 +16,10 @@ newList.addEventListener("keydown", function(event) {
         input.type = "text";
         document.querySelector("main").appendChild(toDo);
         toDo.classList.add("toDo");
-        toDo.classList.add("active");
+        if (document.querySelector(".lists").childElementCount >= 1) {
+            document.querySelector(".active").classList.remove("active");
+        }
+        list.classList.add("active");
         toDo.appendChild(h1);
         toDo.appendChild(listz);
         listz.classList.add("listz");
