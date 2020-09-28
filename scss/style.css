@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,900;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap");
+body {
+  margin: 0;
+  display: flex;
+  font-family: "Poppins";
+  background-image: url("../background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #121711;
+  background-attachment: fixed;
+}
+
+h1 {
+  color: white;
+}
+
+nav {
+  width: 30vw;
+  height: 100vh;
+  padding: 5vmin;
+  max-width: 400px;
+  background-color: transparent;
+}
+nav h1 {
+  margin: 0;
+  font-size: 2em;
+  color: white;
+}
+nav input {
+  background-color: transparent;
+  border: none;
+  width: calc(30vw - 10vmin);
+  max-width: 400px;
+  color: white;
+}
+nav input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+}
+nav input::placeholder {
+  color: #ccc;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  width: calc(30vw - 10vmin);
+  max-width: 400px;
+  color: white;
+}
+input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+}
+input::placeholder {
+  color: #ccc;
+}
+
+main {
+  width: 70vw;
+  height: 100vh;
+  padding: 5vmin;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main h1 {
+  margin: 0;
+}
+
+.list {
+  width: calc(30vw - 10vmin);
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  transition: 0.2s;
+  border-radius: 2px;
+}
+.list h3 {
+  margin: 0;
+  cursor: pointer;
+  width: calc(30vw - 10vmin - 90px);
+  max-width: 340px;
+  overflow: hidden;
+  color: white;
+}
+.list img {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  border-radius: 100%;
+  padding: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.list .x {
+  background-color: white;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 28px;
+  cursor: pointer;
+}
+.list:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.listItem {
+  width: calc(70vw - 10vmin);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  min-height: 2em;
+  transition: 0.2s;
+}
+.listItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.listItem p {
+  line-height: 2em;
+  margin: 0;
+  width: calc(60vw - 10vmin);
+  color: white;
+}
+.listItem img {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  border-radius: 100%;
+  padding: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.listItem .listX {
+  background-color: white;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 28px;
+  cursor: pointer;
+}
+.listItem input {
+  cursor: pointer;
+  height: 1.5em;
+  width: 1.5em;
+  margin-top: 0.4em;
+}
+.listItem .iconWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 75px;
+  margin-top: calc(17px - 1em);
+}
+
+/*# sourceMappingURL=style.css.map */
