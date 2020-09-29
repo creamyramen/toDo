@@ -5,19 +5,26 @@ newList.addEventListener("keydown", function(event) {
         let lists = document.querySelector(".lists"),
             list = document.createElement("div"),
             toDo = document.createElement("div"),
+            nav = document.querySelector("nav"),
             main = document.querySelector("main");
         main.appendChild(toDo)
         lists.appendChild(list);
-        list.innerHTML = `<div class='active list'><h3 contenteditable='false'>${newList.value}</h3><img src='pencil.png'><div class='x'>x</div></div>`;
-        toDo.innerHTML = `<div class='toDo active'><h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text"></div>`;
+        list.innerHTML = `<h3 contenteditable='false'>${newList.value}</h3><img src='pencil.png'><div class='x'>x</div>`;
+        toDo.innerHTML = `<h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text">`;
         newList.value = "";
-        list.classList.add(`list${toDo.parentNode.childElementCount - 1}`);
-        toDo.classList.add(`list${toDo.parentNode.childElementCount - 1}`);
+        list.classList.add(`list${toDo.parentNode.childElementCount - 1}`, "list", "active");
+        toDo.classList.add(`list${toDo.parentNode.childElementCount - 1}`, "toDo", "active");
         document.querySelector(".listBlank").style.display = "none";
         if (document.querySelector(".lists").childElementCount >= 2) {
-            document.querySelector("nav").querySelector(".active").classList.remove("active");
-            document.querySelector("main").querySelector(".active").classList.remove("active");
+            nav.querySelector(".active").classList.remove("active");
+            main.querySelector(".active").classList.remove("active");
         }
+        list.addEventListener("click", function() {
+            nav.querySelector(".active").classList.remove("active");
+            main.querySelector(".active").classList.remove("active");
+            list.classList.add("active");
+            toDo.classList.add("active");
+        })
         let input = toDo.querySelector("input");
         input.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) {
@@ -53,13 +60,6 @@ newList.addEventListener("keydown", function(event) {
                 if (document.querySelector("main").childElementCount === 1) {
                     document.querySelector(".listBlank").style.display = "block";
                 }
-            });
-        }
-        for (let i = 0; i < lists.childElementCount; i++) {
-            document.querySelectorAll(".list")[i].addEventListener("click", function() {
-                document.querySelector("nav").querySelector(".active").classList.remove("active");
-                document.querySelector("main").querySelector(".active").classList.remove("active");
-                document.querySelectorAll(".list")[i].classList.add("active");
             });
         }
     }
