@@ -11,8 +11,8 @@ newList.addEventListener("keydown", function(event) {
         list.innerHTML = `<div class='active list'><h3 contenteditable='false'>${newList.value}</h3><img src='pencil.png'><div class='x'>x</div></div>`;
         toDo.innerHTML = `<div class='toDo active'><h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text"></div>`;
         newList.value = "";
-        list.classList.add('list' + (toDo.parentNode.childElementCount - 1));
-        toDo.classList.add('list' + (toDo.parentNode.childElementCount - 1));
+        list.classList.add(`list${toDo.parentNode.childElementCount - 1}`);
+        toDo.classList.add(`list${toDo.parentNode.childElementCount - 1}`);
         document.querySelector(".listBlank").style.display = "none";
         if (document.querySelector(".lists").childElementCount >= 2) {
             document.querySelector("nav").querySelector(".active").classList.remove("active");
@@ -40,19 +40,26 @@ newList.addEventListener("keydown", function(event) {
                 }
             }
         });
-        document.querySelector(".lists").appendChild(list);
-        for (let i = 0; i < document.querySelector(".lists").childElementCount; i++) {
+        lists.appendChild(list);
+        for (let i = 0; i < lists.childElementCount; i++) {
             document.querySelectorAll(".x")[i].addEventListener("click", function() {
                 this.parentNode.style.transition = ".5s";
                 this.parentNode.style.opacity = "0";
                 this.parentNode.style.marginTop = "-50px";
                 setTimeout(sickGnasty = () => {
-                    this.parentNode.remove();
+                    this.parentNode.parentNode.remove();
                 }, 500);
                 document.querySelector("main").querySelector(`.list${i + 1}`).remove();
                 if (document.querySelector("main").childElementCount === 1) {
                     document.querySelector(".listBlank").style.display = "block";
                 }
+            });
+        }
+        for (let i = 0; i < lists.childElementCount; i++) {
+            document.querySelectorAll(".list")[i].addEventListener("click", function() {
+                document.querySelector("nav").querySelector(".active").classList.remove("active");
+                document.querySelector("main").querySelector(".active").classList.remove("active");
+                document.querySelectorAll(".list")[i].classList.add("active");
             });
         }
     }
