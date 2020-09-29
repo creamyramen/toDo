@@ -16,6 +16,14 @@ h1 {
   color: white;
 }
 
+.toDo {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 nav {
   width: 30vw;
   height: 100vh;
@@ -31,7 +39,7 @@ nav h1 {
 nav input {
   background-color: transparent;
   border: none;
-  width: calc(30vw - 10vmin);
+  width: calc(30vw + 20px - 10vmin);
   max-width: 400px;
   color: white;
 }
@@ -46,8 +54,7 @@ nav input::placeholder {
 input {
   background-color: transparent;
   border: none;
-  width: calc(30vw - 10vmin);
-  max-width: 400px;
+  width: calc(70vw - 10vmin);
   color: white;
 }
 input:focus {

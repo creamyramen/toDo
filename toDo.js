@@ -16,14 +16,12 @@ newList.addEventListener("keydown", function(event) {
         input.type = "text";
         document.querySelector("main").appendChild(toDo);
         toDo.classList.add("toDo");
-        if (document.querySelector(".lists").childElementCount >= 1) {
-            document.querySelector(".active").classList.remove("active");
-        }
         list.classList.add("active");
         toDo.appendChild(h1);
         toDo.appendChild(listz);
         listz.classList.add("listz");
         toDo.appendChild(input);
+        toDo.classList.add("active");
         h1.innerHTML = newList.value;
         list.appendChild(listTitle);
         list.appendChild(edit);
@@ -38,6 +36,10 @@ newList.addEventListener("keydown", function(event) {
         list.classList.add('list' + (toDo.parentNode.childElementCount - 1));
         toDo.classList.add('list' + (toDo.parentNode.childElementCount - 1));
         document.querySelector(".listBlank").style.display = "none";
+        if (document.querySelector(".lists").childElementCount >= 1) {
+            document.querySelector("nav").querySelector(".active").classList.remove("active");
+            document.querySelector("main").querySelector(".active").classList.remove("active");
+        }
         input.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) {
                 let listItem = document.createElement("div"),
@@ -83,7 +85,6 @@ newList.addEventListener("keydown", function(event) {
                     this.parentNode.remove();
                 }, 1000);
                 document.querySelector("main").querySelector(".list" + (i + 1)).remove();
-                console.log(i + 1);
                 if (document.querySelector("main").childElementCount === 1) {
                     document.querySelector(".listBlank").style.display = "block";
                 }
