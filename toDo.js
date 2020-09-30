@@ -19,12 +19,24 @@ newList.addEventListener("keydown", function(event) {
             nav.querySelector(".active").classList.remove("active");
             main.querySelector(".active").classList.remove("active");
         }
-        list.addEventListener("click", function() {
+        list.querySelector("h3").addEventListener("click", function() {
             nav.querySelector(".active").classList.remove("active");
             main.querySelector(".active").classList.remove("active");
             list.classList.add("active");
             toDo.classList.add("active");
-        })
+        });
+        list.querySelector(".x").addEventListener("click", function() {
+            list.classList.add("dead");
+            setTimeout(sickGnasty = () => { list.remove(); }, 500);
+            if (list.classList.contains("active") === true) {
+                list.remove();
+                toDo.remove();
+                if (lists.childElementCount === 0) { document.querySelector(".listBlank").style.display = "block"; } else {
+                    nav.querySelectorAll(".list")[lists.childElementCount - 1].classList.add("active");
+                    main.querySelectorAll(".toDo")[lists.childElementCount - 1].classList.add("active");
+                };
+            }
+        });
         let input = toDo.querySelector("input");
         input.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) {
@@ -48,19 +60,5 @@ newList.addEventListener("keydown", function(event) {
             }
         });
         lists.appendChild(list);
-        for (let i = 0; i < lists.childElementCount; i++) {
-            document.querySelectorAll(".x")[i].addEventListener("click", function() {
-                this.parentNode.style.transition = ".5s";
-                this.parentNode.style.opacity = "0";
-                this.parentNode.style.marginTop = "-50px";
-                setTimeout(sickGnasty = () => {
-                    this.parentNode.parentNode.remove();
-                }, 500);
-                document.querySelector("main").querySelector(`.list${i + 1}`).remove();
-                if (document.querySelector("main").childElementCount === 1) {
-                    document.querySelector(".listBlank").style.display = "block";
-                }
-            });
-        }
     }
 });

@@ -16,6 +16,12 @@ h1 {
   color: white;
 }
 
+.dead {
+  transition: 0.5s;
+  opacity: 0;
+  margin-top: -50px;
+}
+
 .toDo {
   display: none;
 }
