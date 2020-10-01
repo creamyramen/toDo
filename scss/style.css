@@ -16,7 +16,8 @@ h1 {
   color: white;
 }
 
-.toDo .listz .dead {
+.toDo .listz .dead,
+.dead {
   transition: 0.2s;
   opacity: 0;
   margin-top: -50px;
@@ -31,11 +32,11 @@ h1 {
 }
 
 .lists .active h3 {
-  color: lightblue;
+  color: #05EDFF;
 }
 .lists .active img,
 .lists .active div {
-  background-color: lightblue;
+  background-color: #05EDFF;
 }
 
 nav {
@@ -181,6 +182,21 @@ main h1 {
   justify-content: space-between;
   width: 75px;
   margin-top: calc(17px - 1em);
+}
+
+.rmv {
+  font-family: "Poppins";
+  position: absolute;
+  right: 2vw;
+  bottom: 2vw;
+  color: gray;
+  cursor: default;
+}
+
+.remove {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

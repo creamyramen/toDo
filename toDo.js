@@ -10,7 +10,7 @@ newList.addEventListener("keydown", function(event) {
         main.appendChild(toDo)
         lists.appendChild(list);
         list.innerHTML = `<h3 contenteditable='false'>${newList.value}</h3><img src='pencil.png'><div class='x'>x</div>`;
-        toDo.innerHTML = `<h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text">`;
+        toDo.innerHTML = `<h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text"><p class="rmv">Remove completed tasks</p>`;
         newList.value = "";
         list.classList.add("list", "active");
         toDo.classList.add("toDo", "active");
@@ -25,13 +25,30 @@ newList.addEventListener("keydown", function(event) {
             list.classList.add("active");
             toDo.classList.add("active");
         });
+        list.querySelector("img").addEventListener("click", function() {
+            this.parentNode.children[0].setAttribute("contenteditable", "true");
+            this.parentNode.children[0].focus();
+            let range = document.createRange(),
+                selection = window.getSelection();
+            range.selectNodeContents(this.parentNode.children[0]);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            list.querySelector("h3").addEventListener("keydown", function(keyNum) {
+                if (keyNum.keyCode === 13) {
+                    this.setAttribute("contenteditable", "false");
+                    toDo.querySelector("h1").innerHTML = this.innerHTML;
+                }
+            });
+        });
         list.querySelector(".x").addEventListener("click", function() {
             list.classList.add("dead");
             setTimeout(sickGnasty = () => {
                 if (list.classList.contains("active") === true) {
                     list.remove();
                     toDo.remove();
-                    if (lists.childElementCount === 0) { document.querySelector(".listBlank").style.display = "block"; } else {
+                    if (lists.childElementCount === 0) {
+                        document.querySelector(".listBlank").style.display = "block";
+                    } else {
                         nav.querySelectorAll(".list")[lists.childElementCount - 1].classList.add("active");
                         main.querySelectorAll(".toDo")[lists.childElementCount - 1].classList.add("active");
                     };
@@ -44,18 +61,56 @@ newList.addEventListener("keydown", function(event) {
         let input = toDo.querySelector("input");
         input.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) {
-                let listz = toDo.querySelector(".listz");
-                let listItem = document.createElement("div");
+                let listz = toDo.querySelector(".listz"),
+                    listItem = document.createElement("div"),
+                    rmv = toDo.querySelector(".rmv");
+                rmv.classList.add("remove");
                 listItem.innerHTML = `<input type="checkbox"><p>${input.value}</p><div class="iconWrap"><img src="pencil.png"><div class="listX">x</div></div>`;
                 listItem.classList.add("listItem");
                 listz.appendChild(listItem);
                 input.value = "";
+                listItem.querySelector("img").addEventListener("click", function() {
+                    this.parentNode.parentNode.children[1].setAttribute("contenteditable", "true");
+                    this.parentNode.parentNode.children[1].focus();
+                    let range = document.createRange(),
+                        selection = window.getSelection();
+                    range.selectNodeContents(this.parentNode.parentNode.children[1]);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    this.parentNode.parentNode.children[1].addEventListener("keydown", function(keyNum) {
+                        if (keyNum.keyCode === 13) {
+                            this.setAttribute("contenteditable", "false");
+                        }
+                    });
+                });
+                rmv.addEventListener("click", lit = () => {
+                    for (let i = 0; i < listz.childElementCount; i++) {
+                        if (toDo.querySelectorAll("input")[i].checked === true) {
+                            toDo.querySelectorAll("input")[i].parentNode.remove();
+                        }
+                    }
+                })
                 listItem.querySelector(".listX").addEventListener("click", function() {
                     listItem.classList.add("dead");
-                    setTimeout(epicTime = () => { listItem.remove(); }, 100);
+                    setTimeout(epicTime = () => {
+                        listItem.remove();
+                        if (listz.childElementCount === 0) {
+                            rmv.classList.remove("remove");
+                        }
+                    }, 100);
                 });
             }
         });
         lists.appendChild(list);
     }
 });
+
+this.parentNode.parentNode.children[0].setAttribute("contenteditable", "true");
+this.parentNode.parentNode.children[0].focus();
+
+// create a selection range for the group title text
+var range = document.createRange();
+range.selectNodeContents(this.parentNode.parentNode.children[0]);
+var selection = window.getSelection();
+selection.removeAllRanges();
+selection.addRange(range);
