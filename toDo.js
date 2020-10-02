@@ -26,6 +26,10 @@ newList.addEventListener("keydown", function(event) {
             toDo.classList.add("active");
         });
         list.querySelector("img").addEventListener("click", function() {
+            nav.querySelector(".active").classList.remove("active");
+            main.querySelector(".active").classList.remove("active");
+            list.classList.add("active");
+            toDo.classList.add("active");
             this.parentNode.children[0].setAttribute("contenteditable", "true");
             this.parentNode.children[0].focus();
             let range = document.createRange(),
@@ -34,6 +38,7 @@ newList.addEventListener("keydown", function(event) {
             selection.removeAllRanges();
             selection.addRange(range);
             list.querySelector("h3").addEventListener("keydown", function(keyNum) {
+                toDo.querySelector("h1").innerHTML = this.innerHTML;
                 if (keyNum.keyCode === 13) {
                     this.setAttribute("contenteditable", "false");
                     toDo.querySelector("h1").innerHTML = this.innerHTML;
