@@ -12,7 +12,6 @@ body {
     background-repeat: no-repeat;
     background-color: #121711;
     background-attachment: fixed;
-    // overflow: hidden;
 }
 
 h1 {
@@ -60,10 +59,6 @@ nav {
     max-width: 400px;
     background-color: transparent;
     overflow-y: scroll;
-    // background-image: url('../navBackground.jpeg');
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
     h1 {
         margin: 0;
         font-size: 2em;
@@ -141,7 +136,6 @@ main {
         cursor: pointer;
     }
     .x {
-        // display: none;
         background-color: white;
         width: 28px;
         height: 28px;
@@ -157,7 +151,6 @@ main {
 }
 
 .listItem {
-    // width: calc(60vw - 10vmin - 12em);
     display: flex;
     justify-content: space-between;
     padding: 10px;
