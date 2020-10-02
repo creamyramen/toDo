@@ -5,12 +5,14 @@ body {
     margin: 0;
     display: flex;
     font-family: 'Poppins';
+    justify-content: right;
     background-image: url('../background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #121711;
     background-attachment: fixed;
+    // overflow: hidden;
 }
 
 h1 {
@@ -53,10 +55,11 @@ h1 {
 
 nav {
     width: 30vw;
-    height: 100vh;
+    height: calc(100vh - 10vmin);
     padding: 5vmin;
     max-width: 400px;
     background-color: transparent;
+    overflow-y: scroll;
     // background-image: url('../navBackground.jpeg');
     // background-size: cover;
     // background-position: center;
@@ -97,14 +100,15 @@ input {
 }
 
 main {
-    width: calc(70vw - 10vmin);
-    height: 100vh;
+    width: calc(70vw - 10vmin - 12em);
+    height: calc(100vh - 10vmin);
     padding: 5vmin;
     background-color: transparent;
     // background-image: url('../mainBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: scroll;
     h1 {
         margin: 0;
     }
@@ -153,7 +157,7 @@ main {
 }
 
 .listItem {
-    width: calc(60vw - 10vmin);
+    // width: calc(60vw - 10vmin - 12em);
     display: flex;
     justify-content: space-between;
     padding: 10px;
