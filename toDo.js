@@ -84,10 +84,11 @@ newList.addEventListener("keydown", function(event) {
                     });
                 });
                 rmv.addEventListener("click", lit = () => {
-                    for (let i = 0; i < listz.childElementCount; i++) {
-                        if (toDo.querySelectorAll("input")[i].checked === true) {
-                            toDo.querySelectorAll("input")[i].parentNode.remove();
-                        }
+                    if (listItem.querySelector("input").checked === true) {
+                        listItem.querySelector("input").parentNode.classList.add("finished");
+                        setTimeout(supertime = () => {
+                            listItem.remove();
+                        }, 100);
                     }
                 })
                 listItem.querySelector(".listX").addEventListener("click", function() {
@@ -104,13 +105,3 @@ newList.addEventListener("keydown", function(event) {
         lists.appendChild(list);
     }
 });
-
-this.parentNode.parentNode.children[0].setAttribute("contenteditable", "true");
-this.parentNode.parentNode.children[0].focus();
-
-// create a selection range for the group title text
-var range = document.createRange();
-range.selectNodeContents(this.parentNode.parentNode.children[0]);
-var selection = window.getSelection();
-selection.removeAllRanges();
-selection.addRange(range);

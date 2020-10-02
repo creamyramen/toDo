@@ -23,6 +23,13 @@ h1 {
   margin-top: -50px;
 }
 
+.toDo .listz .finished {
+  transition: 0.2s;
+  opacity: 0;
+  margin-right: -70vw;
+  margin-top: -50px;
+}
+
 .toDo {
   display: none;
 }
@@ -69,7 +76,7 @@ nav input::placeholder {
 input {
   background-color: transparent;
   border: none;
-  width: calc(70vw - 10vmin);
+  width: calc(60vw - 10vmin);
   color: white;
 }
 input:focus {
@@ -81,7 +88,7 @@ input::placeholder {
 }
 
 main {
-  width: 70vw;
+  width: calc(70vw - 10vmin);
   height: 100vh;
   padding: 5vmin;
   background-color: transparent;
@@ -135,7 +142,7 @@ main h1 {
 }
 
 .listItem {
-  width: calc(70vw - 10vmin);
+  width: calc(60vw - 10vmin);
   display: flex;
   justify-content: space-between;
   padding: 10px;
