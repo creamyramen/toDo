@@ -110,3 +110,11 @@ newList.addEventListener("keydown", function(event) {
         lists.appendChild(list);
     }
 });
+
+let borger = document.querySelector(".borger");
+
+borger.addEventListener("click", function() {
+    borger.classList.toggle("burgerWrap");
+    borger.classList.toggle("xWrap");
+    document.querySelector("nav").classList.toggle("off")
+})

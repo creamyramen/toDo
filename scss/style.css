@@ -54,6 +54,7 @@ nav {
   max-width: 400px;
   background-color: transparent;
   overflow-y: scroll;
+  transition: 0.5s;
 }
 nav h1 {
   margin: 0;
@@ -206,6 +207,71 @@ main h1 {
   text-decoration: underline;
   color: white;
   cursor: pointer;
+}
+
+.borger {
+  display: none;
+  transition: 0.5s;
+}
+.borger .burger {
+  transition: inherit;
+}
+
+.burgerWrap {
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  padding: 10px;
+  background-color: transparent;
+}
+.burgerWrap .burger {
+  width: 50px;
+  height: 2px;
+  background-color: white;
+}
+.burgerWrap .two,
+.burgerWrap .three {
+  margin-top: 18px;
+}
+
+.xWrap {
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: black;
+}
+.xWrap .burger {
+  width: 50px;
+  height: 2px;
+  background-color: white;
+}
+.xWrap .one {
+  transform: rotate(45deg);
+  margin-top: 25px;
+}
+.xWrap .two {
+  opacity: 0;
+}
+.xWrap .three {
+  transform: rotate(-45deg);
+  margin-top: -4px;
+}
+
+.off {
+  margin-left: calc(-30vw - 10vmin);
+}
+
+@media only screen and (max-width: 900px) {
+  .borger {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
