@@ -117,4 +117,4 @@ borger.addEventListener("click", function() {
     borger.classList.toggle("burgerWrap");
     borger.classList.toggle("xWrap");
     document.querySelector("nav").classList.toggle("off")
-})
+});
