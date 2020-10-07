@@ -12,43 +12,49 @@ body {
     background-repeat: no-repeat;
     background-color: #121711;
     background-attachment: fixed;
-}
-
-h1 {
-    color: white;
-}
-
-.toDo .listz .dead,
-.dead {
-    transition: .2s;
-    opacity: 0;
-    margin-top: -50px;
-}
-
-.toDo .listz .finished {
-    transition: .2s;
-    opacity: 0;
-    margin-right: -70vw;
-    margin-top: -50px;
-}
-
-.toDo {
-    display: none;
-}
-
-.active {
-    display: block;
-}
-
-.lists {
-    .active {
-        h3 {
-            color: $activeColor;
+    h1 {
+        color: white;
+        font-size: 2em;
+        margin: 0;
+    }
+    input {
+        background-color: transparent;
+        border: none;
+        color: white;
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid white;
         }
-        img,
-        div {
-            background-color: $activeColor;
+        &::placeholder {
+            color: #ccc;
         }
+    }
+    img {
+        background-color: white;
+        height: 20px;
+        width: 20px;
+        min-width: 20px;
+        border-radius: 100%;
+        padding: 4px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    .x,
+    .listX {
+        background-color: white;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 28px;
+        cursor: pointer;
+    }
+    .iconWrap {
+        display: flex;
+        justify-content: space-between;
+        width: 75px;
+        margin-top: calc(17px - 1em);
     }
 }
 
@@ -60,144 +66,100 @@ nav {
     background-color: transparent;
     overflow-y: scroll;
     transition: .5s;
-    h1 {
-        margin: 0;
-        font-size: 2em;
-        color: white;
+    .lists {
+        .dead {
+            transition: .2s;
+            opacity: 0;
+            margin-top: -50px;
+        }
+        .list {
+            width: calc(30vw - 20px);
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            transition: .2s;
+            border-radius: 2px;
+            h3 {
+                margin: 0;
+                cursor: pointer;
+                max-width: 340px;
+                overflow: hidden;
+                color: white;
+            }
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+        .active {
+            h3 {
+                color: $activeColor;
+            }
+            img,
+            .x {
+                background-color: $activeColor;
+            }
+        }
     }
     input {
-        background-color: transparent;
-        border: none;
-        width: calc(30vw + 20px - 10vmin);
-        max-width: 400px;
-        color: white;
-        &:focus {
-            outline: none;
-            border-bottom: 1px solid white;
-        }
-        &::placeholder {
-            color: #ccc;
-        }
-    }
-}
-
-input {
-    background-color: transparent;
-    border: none;
-    width: calc(60vw - 10vmin);
-    color: white;
-    &:focus {
-        outline: none;
-        border-bottom: 1px solid white;
-    }
-    &::placeholder {
-        color: #ccc;
+        width: calc(30vw - 4px)
     }
 }
 
 main {
-    width: calc(70vw - 10vmin - 12em);
-    height: calc(100vh - 10vmin);
+    width: calc(70vw - 20vmin);
+    height: calc(90vh - 10vmin);
     padding: 5vmin;
     background-color: transparent;
-    // background-image: url('../mainBackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow-y: scroll;
-    h1 {
-        margin: 0;
-    }
-}
-
-.list {
-    width: calc(30vw - 10vmin);
-    max-width: 400px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    transition: .2s;
-    border-radius: 2px;
-    h3 {
-        margin: 0;
-        cursor: pointer;
-        width: calc(30vw - 10vmin - 90px);
-        max-width: 340px;
-        overflow: hidden;
-        color: white;
-    }
-    img {
-        background-color: white;
-        height: 20px;
-        width: 20px;
-        min-width: 20px;
-        border-radius: 100%;
-        padding: 4px;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-    .x {
-        background-color: white;
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        border-radius: 100%;
-        text-align: center;
-        line-height: 28px;
-        cursor: pointer;
-    }
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-.listItem {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    min-height: 2em;
-    transition: .2s;
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    p {
-        line-height: 2em;
-        margin: 0;
-        width: calc(60vw - 10vmin);
-        color: white;
-    }
-    img {
-        background-color: white;
-        height: 20px;
-        width: 20px;
-        min-width: 20px;
-        border-radius: 100%;
-        padding: 4px;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-    .listX {
-        background-color: white;
-        width: 28px;
-        height: 28px;
-        min-width: 28px;
-        border-radius: 100%;
-        text-align: center;
-        line-height: 28px;
-        cursor: pointer;
-        // color: white;
-    }
     input {
-        cursor: pointer;
-        height: 1.5em;
-        width: 1.5em;
-        margin-top: .4em;
+        width: calc(70vw - 20vmin - 4px);
     }
-    .iconWrap {
-        display: flex;
-        justify-content: space-between;
-        width: 75px;
-        margin-top: calc(17px - 1em);
+    .toDo {
+        display: none;
+        .listz {
+            .dead {
+                transition: .2s;
+                opacity: 0;
+                margin-top: -50px;
+            }
+            .listItem {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                min-height: 2em;
+                transition: .2s;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                p {
+                    line-height: 2em;
+                    margin: 0;
+                    width: calc(70vw);
+                    color: white;
+                    overflow-x: visible;
+                    overflow-wrap: break-word;
+                }
+                input {
+                    cursor: pointer;
+                    height: 1.5em;
+                    width: 1.5em;
+                    margin-top: .4em;
+                }
+                .finished {
+                    transition: .2s;
+                    opacity: 0;
+                    margin-right: -70vw;
+                    margin-top: -50px;
+                }
+            }
+        }
+    }
+    .active {
+        display: block;
     }
 }
 
@@ -272,7 +234,7 @@ main {
 }
 
 .off {
-    margin-left: calc(-30vw - 10vmin);
+    margin-left: -30vw;
 }
 
 @media only screen and (max-width: 900px) {

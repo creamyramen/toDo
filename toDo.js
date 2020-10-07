@@ -1,4 +1,5 @@
-let newList = document.querySelector(".newList");
+let newList = document.querySelector(".newList"),
+    a = "active";
 
 newList.addEventListener("keydown", function(event) {
     if (event.keyCode === 13) {
@@ -9,27 +10,27 @@ newList.addEventListener("keydown", function(event) {
             main = document.querySelector("main");
         main.appendChild(toDo)
         lists.appendChild(list);
-        list.innerHTML = `<h3 contenteditable='false'>${newList.value}</h3><img src='pencil.png'><div class='x'>x</div>`;
+        list.innerHTML = `<h3 contenteditable='false'>${newList.value}</h3><div class="iconWrap"><img src='pencil.png'><div class='x'>x</div></div>`;
         toDo.innerHTML = `<h1>${newList.value}</h1><div class='listz'></div><input placeholder="Enter new tasks here" type="text"><p class="rmv">Remove completed tasks</p>`;
         newList.value = "";
-        list.classList.add("list", "active");
-        toDo.classList.add("toDo", "active");
+        list.classList.add("list", `${a}`);
+        toDo.classList.add("toDo", `${a}`);
         document.querySelector(".listBlank").style.display = "none";
         if (document.querySelector(".lists").childElementCount >= 2) {
-            nav.querySelector(".active").classList.remove("active");
-            main.querySelector(".active").classList.remove("active");
+            nav.querySelector(`.${a}`).classList.remove(`${a}`);
+            main.querySelector(`.${a}`).classList.remove(`${a}`);
         }
         list.querySelector("h3").addEventListener("click", function() {
-            nav.querySelector(".active").classList.remove("active");
-            main.querySelector(".active").classList.remove("active");
-            list.classList.add("active");
-            toDo.classList.add("active");
+            nav.querySelector(`.${a}`).classList.remove(`${a}`);
+            main.querySelector(`.${a}`).classList.remove(`${a}`);
+            list.classList.add(`${a}`);
+            toDo.classList.add(`${a}`);
         });
         list.querySelector("img").addEventListener("click", function() {
-            nav.querySelector(".active").classList.remove("active");
-            main.querySelector(".active").classList.remove("active");
-            list.classList.add("active");
-            toDo.classList.add("active");
+            nav.querySelector(`.${a}`).classList.remove(`${a}`);
+            main.querySelector(`.${a}`).classList.remove(`${a}`);
+            list.classList.add(`${a}`);
+            toDo.classList.add(`${a}`);
             this.parentNode.children[0].setAttribute("contenteditable", "true");
             this.parentNode.children[0].focus();
             let range = document.createRange(),
@@ -48,14 +49,14 @@ newList.addEventListener("keydown", function(event) {
         list.querySelector(".x").addEventListener("click", function() {
             list.classList.add("dead");
             setTimeout(sickGnasty = () => {
-                if (list.classList.contains("active") === true) {
+                if (list.classList.contains(`${a}`) === true) {
                     list.remove();
                     toDo.remove();
                     if (lists.childElementCount === 0) {
                         document.querySelector(".listBlank").style.display = "block";
                     } else {
-                        nav.querySelectorAll(".list")[lists.childElementCount - 1].classList.add("active");
-                        main.querySelectorAll(".toDo")[lists.childElementCount - 1].classList.add("active");
+                        nav.querySelectorAll(".list")[lists.childElementCount - 1].classList.add(`${a}`);
+                        main.querySelectorAll(".toDo")[lists.childElementCount - 1].classList.add(`${a}`);
                     };
                 } else {
                     list.remove();

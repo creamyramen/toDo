@@ -12,39 +12,49 @@ body {
   background-color: #121711;
   background-attachment: fixed;
 }
-
-h1 {
+body h1 {
+  color: white;
+  font-size: 2em;
+  margin: 0;
+}
+body input {
+  background-color: transparent;
+  border: none;
   color: white;
 }
-
-.toDo .listz .dead,
-.dead {
-  transition: 0.2s;
-  opacity: 0;
-  margin-top: -50px;
+body input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
 }
-
-.toDo .listz .finished {
-  transition: 0.2s;
-  opacity: 0;
-  margin-right: -70vw;
-  margin-top: -50px;
+body input::placeholder {
+  color: #ccc;
 }
-
-.toDo {
-  display: none;
+body img {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  border-radius: 100%;
+  padding: 4px;
+  margin-right: 10px;
+  cursor: pointer;
 }
-
-.active {
-  display: block;
+body .x,
+body .listX {
+  background-color: white;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 28px;
+  cursor: pointer;
 }
-
-.lists .active h3 {
-  color: #05EDFF;
-}
-.lists .active img,
-.lists .active div {
-  background-color: #05EDFF;
+body .iconWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 75px;
+  margin-top: calc(17px - 1em);
 }
 
 nav {
@@ -56,56 +66,13 @@ nav {
   overflow-y: scroll;
   transition: 0.5s;
 }
-nav h1 {
-  margin: 0;
-  font-size: 2em;
-  color: white;
+nav .lists .dead {
+  transition: 0.2s;
+  opacity: 0;
+  margin-top: -50px;
 }
-nav input {
-  background-color: transparent;
-  border: none;
-  width: calc(30vw + 20px - 10vmin);
-  max-width: 400px;
-  color: white;
-}
-nav input:focus {
-  outline: none;
-  border-bottom: 1px solid white;
-}
-nav input::placeholder {
-  color: #ccc;
-}
-
-input {
-  background-color: transparent;
-  border: none;
-  width: calc(60vw - 10vmin);
-  color: white;
-}
-input:focus {
-  outline: none;
-  border-bottom: 1px solid white;
-}
-input::placeholder {
-  color: #ccc;
-}
-
-main {
-  width: calc(70vw - 10vmin - 12em);
-  height: calc(100vh - 10vmin);
-  padding: 5vmin;
-  background-color: transparent;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow-y: scroll;
-}
-main h1 {
-  margin: 0;
-}
-
-.list {
-  width: calc(30vw - 10vmin);
+nav .lists .list {
+  width: calc(30vw - 20px);
   max-width: 400px;
   display: flex;
   justify-content: space-between;
@@ -113,85 +80,80 @@ main h1 {
   transition: 0.2s;
   border-radius: 2px;
 }
-.list h3 {
+nav .lists .list h3 {
   margin: 0;
   cursor: pointer;
-  width: calc(30vw - 10vmin - 90px);
   max-width: 340px;
   overflow: hidden;
   color: white;
 }
-.list img {
-  background-color: white;
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  border-radius: 100%;
-  padding: 4px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.list .x {
-  background-color: white;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  border-radius: 100%;
-  text-align: center;
-  line-height: 28px;
-  cursor: pointer;
-}
-.list:hover {
+nav .lists .list:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+nav .lists .active h3 {
+  color: #05EDFF;
+}
+nav .lists .active img,
+nav .lists .active .x {
+  background-color: #05EDFF;
+}
+nav input {
+  width: calc(30vw - 4px);
+}
 
-.listItem {
+main {
+  width: calc(70vw - 20vmin);
+  height: calc(90vh - 10vmin);
+  padding: 5vmin;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+}
+main input {
+  width: calc(70vw - 20vmin - 4px);
+}
+main .toDo {
+  display: none;
+}
+main .toDo .listz .dead {
+  transition: 0.2s;
+  opacity: 0;
+  margin-top: -50px;
+}
+main .toDo .listz .listItem {
   display: flex;
   justify-content: space-between;
   padding: 10px;
   min-height: 2em;
   transition: 0.2s;
 }
-.listItem:hover {
+main .toDo .listz .listItem:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.listItem p {
+main .toDo .listz .listItem p {
   line-height: 2em;
   margin: 0;
-  width: calc(60vw - 10vmin);
+  width: calc(70vw);
   color: white;
+  overflow-x: visible;
+  overflow-wrap: break-word;
 }
-.listItem img {
-  background-color: white;
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  border-radius: 100%;
-  padding: 4px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.listItem .listX {
-  background-color: white;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  border-radius: 100%;
-  text-align: center;
-  line-height: 28px;
-  cursor: pointer;
-}
-.listItem input {
+main .toDo .listz .listItem input {
   cursor: pointer;
   height: 1.5em;
   width: 1.5em;
   margin-top: 0.4em;
 }
-.listItem .iconWrap {
-  display: flex;
-  justify-content: space-between;
-  width: 75px;
-  margin-top: calc(17px - 1em);
+main .toDo .listz .listItem .finished {
+  transition: 0.2s;
+  opacity: 0;
+  margin-right: -70vw;
+  margin-top: -50px;
+}
+main .active {
+  display: block;
 }
 
 .rmv {
@@ -265,7 +227,7 @@ main h1 {
 }
 
 .off {
-  margin-left: calc(-30vw - 10vmin);
+  margin-left: -30vw;
 }
 
 @media only screen and (max-width: 900px) {
