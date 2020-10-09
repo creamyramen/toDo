@@ -70,7 +70,6 @@ nav {
         .dead {
             transition: .2s;
             opacity: 0;
-            margin-top: -50px;
         }
         .list {
             width: calc(30vw - 20px);
@@ -80,6 +79,7 @@ nav {
             padding: 10px;
             transition: .2s;
             border-radius: 2px;
+            align-items: center;
             h3 {
                 margin: 0;
                 cursor: pointer;
@@ -120,15 +120,20 @@ main {
     }
     .toDo {
         display: none;
+        h1 {
+            width: calc(70vw - 20vmin);
+            max-width: calc(70vw - 20vmin);
+            overflow-wrap: break-word;
+        }
         .listz {
             .dead {
                 transition: .2s;
                 opacity: 0;
-                margin-top: -50px;
             }
             .listItem {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 padding: 10px;
                 min-height: 2em;
                 transition: .2s;
@@ -147,7 +152,6 @@ main {
                     cursor: pointer;
                     height: 1.5em;
                     width: 1.5em;
-                    margin-top: .4em;
                 }
                 .finished {
                     transition: .2s;
@@ -191,18 +195,18 @@ main {
     left: 0;
     cursor: pointer;
     position: absolute;
-    width: 50px;
-    height: 40px;
-    padding: 10px;
+    width: 2.5em;
+    height: 2em;
+    padding: 1em;
     background-color: transparent;
     .burger {
-        width: 50px;
-        height: 2px;
+        width: 2.5em;
+        height: .1em;
         background-color: white;
     }
     .two,
     .three {
-        margin-top: 18px;
+        margin-top: .9em;
     }
 }
 
@@ -211,25 +215,25 @@ main {
     left: 0;
     cursor: pointer;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    width: 2.5em;
+    height: 2.5em;
+    padding: .5em;
     background-color: black;
     .burger {
-        width: 50px;
-        height: 2px;
+        width: 2.5em;
+        height: .1em;
         background-color: white;
     }
     .one {
         transform: rotate(45deg);
-        margin-top: 25px;
+        margin-top: 1.25em;
     }
     .two {
         opacity: 0;
     }
     .three {
         transform: rotate(-45deg);
-        margin-top: -4px;
+        margin-top: -.2em;
     }
 }
 
@@ -240,5 +244,8 @@ main {
 @media only screen and (max-width: 900px) {
     .borger {
         display: block;
+    }
+    nav h1 {
+        margin: -.25em 0 0 2em;
     }
 }

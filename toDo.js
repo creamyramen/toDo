@@ -48,6 +48,7 @@ newList.addEventListener("keydown", function(event) {
         });
         list.querySelector(".x").addEventListener("click", function() {
             list.classList.add("dead");
+            list.style.marginTop = ((list.clientHeight * -1)) + "px";
             setTimeout(sickGnasty = () => {
                 if (list.classList.contains(`${a}`) === true) {
                     list.remove();
@@ -62,7 +63,7 @@ newList.addEventListener("keydown", function(event) {
                     list.remove();
                     toDo.remove();
                 }
-            }, 100);
+            }, 200);
         });
         let input = toDo.querySelector("input");
         input.addEventListener("keydown", function(event) {
@@ -99,6 +100,7 @@ newList.addEventListener("keydown", function(event) {
                 })
                 listItem.querySelector(".listX").addEventListener("click", function() {
                     listItem.classList.add("dead");
+                    listItem.style.marginTop = ((listItem.clientHeight * -1)) + "px";
                     setTimeout(epicTime = () => {
                         listItem.remove();
                         if (listz.childElementCount === 0) {

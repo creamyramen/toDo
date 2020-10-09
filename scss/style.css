@@ -69,7 +69,6 @@ nav {
 nav .lists .dead {
   transition: 0.2s;
   opacity: 0;
-  margin-top: -50px;
 }
 nav .lists .list {
   width: calc(30vw - 20px);
@@ -79,6 +78,7 @@ nav .lists .list {
   padding: 10px;
   transition: 0.2s;
   border-radius: 2px;
+  align-items: center;
 }
 nav .lists .list h3 {
   margin: 0;
@@ -117,14 +117,19 @@ main input {
 main .toDo {
   display: none;
 }
+main .toDo h1 {
+  width: calc(70vw - 20vmin);
+  max-width: calc(70vw - 20vmin);
+  overflow-wrap: break-word;
+}
 main .toDo .listz .dead {
   transition: 0.2s;
   opacity: 0;
-  margin-top: -50px;
 }
 main .toDo .listz .listItem {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   min-height: 2em;
   transition: 0.2s;
@@ -144,7 +149,6 @@ main .toDo .listz .listItem input {
   cursor: pointer;
   height: 1.5em;
   width: 1.5em;
-  margin-top: 0.4em;
 }
 main .toDo .listz .listItem .finished {
   transition: 0.2s;
@@ -184,19 +188,19 @@ main .active {
   left: 0;
   cursor: pointer;
   position: absolute;
-  width: 50px;
-  height: 40px;
-  padding: 10px;
+  width: 2.5em;
+  height: 2em;
+  padding: 1em;
   background-color: transparent;
 }
 .burgerWrap .burger {
-  width: 50px;
-  height: 2px;
+  width: 2.5em;
+  height: 0.1em;
   background-color: white;
 }
 .burgerWrap .two,
 .burgerWrap .three {
-  margin-top: 18px;
+  margin-top: 0.9em;
 }
 
 .xWrap {
@@ -204,26 +208,26 @@ main .active {
   left: 0;
   cursor: pointer;
   position: absolute;
-  width: 50px;
-  height: 50px;
-  padding: 10px;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.5em;
   background-color: black;
 }
 .xWrap .burger {
-  width: 50px;
-  height: 2px;
+  width: 2.5em;
+  height: 0.1em;
   background-color: white;
 }
 .xWrap .one {
   transform: rotate(45deg);
-  margin-top: 25px;
+  margin-top: 1.25em;
 }
 .xWrap .two {
   opacity: 0;
 }
 .xWrap .three {
   transform: rotate(-45deg);
-  margin-top: -4px;
+  margin-top: -0.2em;
 }
 
 .off {
@@ -233,6 +237,10 @@ main .active {
 @media only screen and (max-width: 900px) {
   .borger {
     display: block;
+  }
+
+  nav h1 {
+    margin: -0.25em 0 0 2em;
   }
 }
 
