@@ -31,11 +31,11 @@ newList.addEventListener("keydown", function(event) {
             main.querySelector(`.${a}`).classList.remove(`${a}`);
             list.classList.add(`${a}`);
             toDo.classList.add(`${a}`);
-            this.parentNode.children[0].setAttribute("contenteditable", "true");
-            this.parentNode.children[0].focus();
+            this.parentNode.parentNode.children[0].setAttribute("contenteditable", "true");
+            this.parentNode.parentNode.children[0].focus();
             let range = document.createRange(),
                 selection = window.getSelection();
-            range.selectNodeContents(this.parentNode.children[0]);
+            range.selectNodeContents(this.parentNode.parentNode.children[0]);
             selection.removeAllRanges();
             selection.addRange(range);
             list.querySelector("h3").addEventListener("keydown", function(keyNum) {
